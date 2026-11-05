@@ -62,3 +62,9 @@ uniffi = { version = "0.31.1", features = ["build"] }
 
 [profile.release]
 lto = true
+
+[patch.crates-io]
+iroh = { path = "../iroh/iroh" }
+noq-proto = { path = "../noq/noq-proto" }
+iroh-base = { path = "../iroh/iroh-base" }
+iroh-relay = { path = "../iroh/iroh-relay" }

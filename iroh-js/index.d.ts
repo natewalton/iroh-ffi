@@ -49,6 +49,8 @@ export declare class Connection {
 
 /** An iroh endpoint. */
 export declare class Endpoint {
+  /** Effective native restriction, not a package capability constant. */
+  directApplicationDataOnly(): boolean
   /** Create an endpoint builder (starts empty — apply a preset). */
   static builder(): EndpointBuilder
   /**
@@ -133,6 +135,8 @@ export declare class EndpointAddr {
  * ```
  */
 export declare class EndpointBuilder {
+  /** Retain relay control but restrict application payload to direct IP paths. */
+  directApplicationDataOnly(): void
   /** Replay the n0 production preset (relays + discovery + crypto provider). */
   applyN0(): void
   /** Replay the minimal preset (crypto provider only, no external deps). */

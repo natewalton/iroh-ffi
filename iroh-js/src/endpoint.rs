@@ -112,6 +112,12 @@ impl EndpointBuilder {
         self.map(|b| b.alpns(alpns));
     }
 
+    /// Keep application data on direct IP paths while permitting relay control.
+    #[napi]
+    pub fn direct_application_data_only(&self) {
+        self.map(|b| b.direct_application_data_only());
+    }
+
     /// Set the relay mode.
     #[napi]
     pub fn relay_mode(&self, mode: &RelayMode) {
@@ -306,6 +312,12 @@ impl Endpoint {
 
 #[napi]
 impl Endpoint {
+    /// Read the effective native endpoint policy, rather than a package capability.
+    #[napi]
+    pub fn direct_application_data_only(&self) -> bool {
+        self.inner.direct_application_data_only()
+    }
+
     /// Create an endpoint builder (starts empty — apply a preset).
     #[napi]
     pub fn builder() -> EndpointBuilder {
