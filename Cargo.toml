@@ -64,9 +64,9 @@ uniffi = { version = "0.31.1", features = ["build"] }
 lto = true
 
 [patch.crates-io]
-noq-udp = { path = "../noq/noq-udp" }
-noq = { path = "../noq/noq" }
-iroh = { path = "../iroh/iroh" }
-noq-proto = { path = "../noq/noq-proto" }
-iroh-base = { path = "../iroh/iroh-base" }
-iroh-relay = { path = "../iroh/iroh-relay" }
+noq-udp = { git = "https://github.com/natewalton/noq-direct", rev = "5902059db0212d29031e242c0c5f7bd42b5e9e52" }
+noq = { git = "https://github.com/natewalton/noq-direct", rev = "5902059db0212d29031e242c0c5f7bd42b5e9e52" }
+iroh = { git = "https://github.com/natewalton/iroh-direct-core", rev = "148f3edbb8a6d6eee5b1560e6db6432fee22b97c" }
+noq-proto = { git = "https://github.com/natewalton/noq-direct", rev = "5902059db0212d29031e242c0c5f7bd42b5e9e52" }
+iroh-base = { git = "https://github.com/natewalton/iroh-direct-core", rev = "148f3edbb8a6d6eee5b1560e6db6432fee22b97c" }
+iroh-relay = { git = "https://github.com/natewalton/iroh-direct-core", rev = "148f3edbb8a6d6eee5b1560e6db6432fee22b97c" }

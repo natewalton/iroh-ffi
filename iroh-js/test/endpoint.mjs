@@ -1,7 +1,7 @@
 import { test, suite } from 'node:test'
 import assert from 'node:assert'
 
-import pkg from '../index.js'
+import pkg from '../index.cjs'
 const { Endpoint, EndpointTicket, RelayMode, presetMinimal } = pkg
 
 const ALPN = Array.from(Buffer.from('iroh-ffi/test/0', 'utf8'))

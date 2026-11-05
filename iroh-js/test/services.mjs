@@ -1,7 +1,7 @@
 import { test, suite } from 'node:test'
 import assert from 'node:assert'
 
-import pkg from '../index.js'
+import pkg from '../index.cjs'
 const { Endpoint, ServicesClient, presetIrohServices, presetMinimal } = pkg
 
 // Well-formed (but fake) API secret — the remote does not exist, but the

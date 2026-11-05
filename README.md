@@ -1,3 +1,14 @@
+# Independent Iroh direct-payload fork
+
+Experimental fork maintained by Nate Walton, not an official n0 release.
+The supported binary surface in this branch is the separately versioned Node
+package [@natewalton/iroh-direct](iroh-js/README.md), initially macOS arm64 only.
+It provides opt-in native direct-only application payload and matching readiness.
+No consuming application code is required. Read its experimental limitations,
+source pins and release installation instructions before use.
+
+Original upstream documentation follows.
+
 # iroh-ffi
 
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fn0-computer%2Firoh-ffi%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/n0-computer/iroh-ffi)

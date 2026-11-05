@@ -1,7 +1,7 @@
 import { test, suite } from 'node:test'
 import assert from 'node:assert'
 
-import pkg from '../index.js'
+import pkg from '../index.cjs'
 const { RelayMap, RelayMode } = pkg
 
 suite('relay map', () => {

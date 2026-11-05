@@ -1,7 +1,7 @@
 import { test, suite } from 'node:test'
 import assert from 'node:assert'
 
-import pkg from '../index.js'
+import pkg from '../index.cjs'
 const { EndpointId, SecretKey, Signature } = pkg
 
 const keyStr = '523c7996bad77424e96786cf7a7205115337a5b4565cd25506a0f297b191a5ea'

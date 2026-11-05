@@ -1,0 +1,27 @@
+@natewalton/iroh-direct 0.1.0-experimental.1
+Independent experimental fork maintained by Nate Walton; not an official n0 release.
+
+This distribution includes code from:
+- Noq (itself a Quinn fork): https://github.com/n0-computer/noq
+  upstream base 34f75c49f93de5e2ff943483cabc5b6d0c5df918, version 1.4.0
+  fork https://github.com/natewalton/noq-direct
+  feature/source commit 5902059db0212d29031e242c0c5f7bd42b5e9e52
+- Iroh: https://github.com/n0-computer/iroh
+  upstream base d6c6963b9602d1b8dd2ba53b6519e7eb19cc7940, version 1.4.1
+  fork https://github.com/natewalton/iroh-direct-core
+  feature commit 9010e7fdc0228249ec5a193af1a6517617f28281
+  public dependency/source commit 148f3edbb8a6d6eee5b1560e6db6432fee22b97c
+- Iroh FFI: https://github.com/n0-computer/iroh-ffi
+  upstream binding source version 1.2.0
+  original native-policy base 46ae9a2b632c4ad507abdf3c8e898726667cf79b
+  fork https://github.com/natewalton/iroh-ffi
+  reviewed feature commit 9ad19020992e87a5631278d0e47497c563f80edf
+  release packaging source identified by tag iroh-direct-v0.1.0-experimental.1
+
+Modifications: opt-in native direct-only application payload policy, effective
+policy/path-readiness APIs, backup-path preference, matching Node snapshots and
+error-first callback declarations, and an independent self-contained Mac package.
+
+The original MIT and Apache-2.0 licenses are provided alongside this notice.
+Original upstream copyright notices remain applicable. No endorsement by n0,
+Quinn contributors, or other upstream contributors is implied.
