@@ -492,19 +492,19 @@ impl Endpoint {
     }
 
     /// Watch for changes to this endpoint's address.
-    #[napi(ts_args_type = "callback: (addr: EndpointAddr) => void")]
+    #[napi(ts_args_type = "callback: (error: Error | null, addr: EndpointAddr) => void")]
     pub fn watch_addr(&self, callback: ThreadsafeFunction<EndpointAddr>) -> WatchHandle {
         watch::spawn_watch_addr(self.inner.clone(), callback)
     }
 
     /// Watch for changes to the connected relays.
-    #[napi(ts_args_type = "callback: (relayUrls: Array<string>) => void")]
+    #[napi(ts_args_type = "callback: (error: Error | null, relayUrls: Array<string>) => void")]
     pub fn watch_home_relay(&self, callback: ThreadsafeFunction<Vec<String>>) -> WatchHandle {
         watch::spawn_home_relay_watch(self.inner.clone(), callback)
     }
 
     /// Watch for network-stack changes.
-    #[napi(ts_args_type = "callback: () => void")]
+    #[napi(ts_args_type = "callback: (error: Error | null) => void")]
     pub fn watch_network_change(&self, callback: ThreadsafeFunction<()>) -> WatchHandle {
         watch::spawn_network_change_watch(self.inner.clone(), callback)
     }
@@ -830,7 +830,7 @@ impl Connection {
         path::snapshot_paths(&self.0)
     }
 
-    #[napi(ts_args_type = "callback: (paths: Array<PathSnapshot>) => void")]
+    #[napi(ts_args_type = "callback: (error: Error | null, paths: Array<PathSnapshot>) => void")]
     pub fn watch_paths(
         &self,
         callback: ThreadsafeFunction<Vec<path::PathSnapshot>>,
@@ -838,7 +838,7 @@ impl Connection {
         watch::spawn_paths_watch((*self.0).clone(), callback)
     }
 
-    #[napi(ts_args_type = "callback: (event: PathEvent) => void")]
+    #[napi(ts_args_type = "callback: (error: Error | null, event: PathEvent) => void")]
     pub fn watch_path_events(&self, callback: ThreadsafeFunction<path::PathEvent>) -> WatchHandle {
         watch::spawn_path_events_watch((*self.0).clone(), callback)
     }

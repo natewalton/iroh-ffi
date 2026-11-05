@@ -86,6 +86,7 @@ pub(crate) fn spawn_paths_watch(
                 .map(|p| PathSnapshot {
                     id: p.id().to_string(),
                     is_selected: p.is_selected(),
+            application_data_allowed: p.application_data_allowed(),
                     remote_addr: crate::path::transport_addr_to_string(p.remote_addr()),
                     is_ip: p.is_ip(),
                     is_relay: p.is_relay(),

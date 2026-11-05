@@ -41,6 +41,8 @@ impl From<iroh::endpoint::PathStats> for PathStatsRecord {
 pub struct PathSnapshot {
     pub id: String,
     pub is_selected: bool,
+    /// Selected-path policy eligibility; not remote delivery confirmation.
+    pub application_data_allowed: bool,
     pub remote_addr: String,
     pub is_ip: bool,
     pub is_relay: bool,
@@ -157,6 +159,7 @@ pub(crate) fn snapshot_paths(conn: &iroh::endpoint::Connection) -> Vec<PathSnaps
         .map(|p| PathSnapshot {
             id: p.id().to_string(),
             is_selected: p.is_selected(),
+            application_data_allowed: p.application_data_allowed(),
             remote_addr: transport_addr_to_string(p.remote_addr()),
             is_ip: p.is_ip(),
             is_relay: p.is_relay(),

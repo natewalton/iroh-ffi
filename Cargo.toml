@@ -64,6 +64,8 @@ uniffi = { version = "0.31.1", features = ["build"] }
 lto = true
 
 [patch.crates-io]
+noq-udp = { path = "../noq/noq-udp" }
+noq = { path = "../noq/noq" }
 iroh = { path = "../iroh/iroh" }
 noq-proto = { path = "../noq/noq-proto" }
 iroh-base = { path = "../iroh/iroh-base" }

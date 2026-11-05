@@ -184,12 +184,18 @@ suite('endpoint', () => {
 
     const client = await bindClient()
     const conn = await client.connect(serverAddr, ALPN)
-    const h1 = conn.watchPaths(() => {})
+    let h1
+    const current = await new Promise((resolve, reject) => {
+      h1 = conn.watchPaths((error, paths) => error ? reject(error) : resolve(paths))
+    })
+    assert.ok(current.some(p => p.applicationDataAllowed))
+    assert.ok(current.every(p => typeof p.applicationDataAllowed === 'boolean'))
     const h2 = conn.watchPathEvents(() => {})
     await h1.stop()
     await h2.stop()
 
     conn.close(0n, Array.from(Buffer.from('bye')))
+    assert.ok(conn.paths().every(p => !p.applicationDataAllowed))
     await serverTask
     await client.close()
     await server.close()

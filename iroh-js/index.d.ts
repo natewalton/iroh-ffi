@@ -40,8 +40,8 @@ export declare class Connection {
   rtt(): number | null
   stats(): ConnectionStats
   paths(): Array<PathSnapshot>
-  watchPaths(callback: (paths: Array<PathSnapshot>) => void): WatchHandle
-  watchPathEvents(callback: (event: PathEvent) => void): WatchHandle
+  watchPaths(callback: (error: Error | null, paths: Array<PathSnapshot>) => void): WatchHandle
+  watchPathEvents(callback: (error: Error | null, event: PathEvent) => void): WatchHandle
   setMaxConcurrentUniStreams(count: bigint): void
   setReceiveWindow(count: bigint): void
   setMaxConcurrentBiStreams(count: bigint): void
@@ -89,11 +89,11 @@ export declare class Endpoint {
   /** Pull the next incoming connection attempt. */
   acceptNext(): Promise<Incoming | null>
   /** Watch for changes to this endpoint's address. */
-  watchAddr(callback: (addr: EndpointAddr) => void): WatchHandle
+  watchAddr(callback: (error: Error | null, addr: EndpointAddr) => void): WatchHandle
   /** Watch for changes to the connected relays. */
-  watchHomeRelay(callback: (relayUrls: Array<string>) => void): WatchHandle
+  watchHomeRelay(callback: (error: Error | null, relayUrls: Array<string>) => void): WatchHandle
   /** Watch for network-stack changes. */
-  watchNetworkChange(callback: () => void): WatchHandle
+  watchNetworkChange(callback: (error: Error | null) => void): WatchHandle
   /** Close the endpoint. */
   close(): Promise<void>
   /** True if the endpoint is closed. */
@@ -404,6 +404,8 @@ export declare const enum PathEventKind {
 export interface PathSnapshot {
   id: string
   isSelected: boolean
+  /** Selected-path payload policy eligibility; not a delivery guarantee. */
+  applicationDataAllowed: boolean
   remoteAddr: string
   isIp: boolean
   isRelay: boolean
