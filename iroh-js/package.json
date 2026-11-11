@@ -6,7 +6,7 @@
   },
   "license": "MIT OR Apache-2.0",
   "name": "@natewalton/iroh-direct",
-  "version": "0.1.0-experimental.1",
+  "version": "0.1.0-experimental.3",
   "description": "Experimental independent Iroh fork with opt-in direct-only application payload and native readiness",
   "author": "Nate Walton",
   "main": "index.cjs",
